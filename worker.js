@@ -1,6 +1,9 @@
 // Import required dependencies
 import moment from 'moment-jalaali';
 
+// In-memory storage for active chats
+const activeChats = new Set();
+
 // Helper functions
 const persianDays = {
     0: 'یکشنبه',
@@ -98,7 +101,7 @@ async function handleCommand(command, chatId, env) {
                     parse_mode: 'Markdown'
                 })
             });
-            await env.ACTIVE_CHATS.put(chatId.toString(), 'active');
+            activeChats.add(chatId);
             break;
             
         case '/status':
@@ -141,7 +144,7 @@ export default {
                             parse_mode: 'Markdown'
                         })
                     });
-                    await env.ACTIVE_CHATS.put(chatId.toString(), 'active');
+                    activeChats.add(chatId);
                 }
             }
             
@@ -149,7 +152,7 @@ export default {
             if (update.message && update.message.left_chat_member) {
                 const botUsername = env.BOT_USERNAME;
                 if (update.message.left_chat_member.username === botUsername) {
-                    await env.ACTIVE_CHATS.delete(update.message.chat.id.toString());
+                    activeChats.delete(update.message.chat.id);
                 }
             }
             
@@ -160,12 +163,9 @@ export default {
     },
     
     async scheduled(event, env, ctx) {
-        // Get all active chats
-        const activeChats = await env.ACTIVE_CHATS.list();
-        
         // Send reminders to all active chats
-        for (const chat of activeChats.keys) {
-            await sendReminder(parseInt(chat.name), env);
+        for (const chatId of activeChats) {
+            await sendReminder(chatId, env);
         }
     }
 }; 
