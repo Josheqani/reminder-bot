@@ -11,8 +11,8 @@ END_DATE = ""
 
 [[kv_namespaces]]
 binding = "ACTIVE_CHATS"
-id = ""
-preview_id = ""
+id = "e0163c6cd91a47d9bfc992736a119b6a"
+preview_id = "e0163c6cd91a47d9bfc992736a119b6a"
 
 [triggers]
 crons = ["0 0 * * *"]  # Run at midnight every day
