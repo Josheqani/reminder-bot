@@ -1,15 +1,16 @@
 {
   "name": "reminder-bot",
   "version": "1.0.0",
-  "description": "A Telegram bot for project deadline reminders",
-  "main": "index.js",
+  "description": "A Telegram bot for project reminders using Cloudflare Workers",
+  "main": "worker.js",
   "scripts": {
-    "start": "node index.js"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
-    "node-telegram-bot-api": "^0.64.0",
-    "dotenv": "^16.4.1",
-    "moment-jalaali": "^0.10.4",
-    "node-cron": "^3.0.3"
+    "moment-jalaali": "^0.10.4"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
   }
 } 

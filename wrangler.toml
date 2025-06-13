@@ -1,13 +1,18 @@
 name = "reminder-bot"
-main = "index.js"
-compatibility_date = "2025-06-13"
-workers_dev = true
+main = "worker.js"
+compatibility_date = "2024-01-01"
 
 [vars]
-BOT_TOKEN = "7566175497:AAGAK4WeuPfQGL0KlI4OOlc7nSwL_dC8L38"
-PROJECT_TITLE = "دونیفای"
-START_DATE = "1404/03/11"
-END_DATE = "1404/06/11"
+BOT_TOKEN = ""
+BOT_USERNAME = ""
+PROJECT_TITLE = ""
+START_DATE = ""
+END_DATE = ""
 
-[[triggers]]
-schedule = "*/5 * * * *"
+[[kv_namespaces]]
+binding = "ACTIVE_CHATS"
+id = ""
+preview_id = ""
+
+[triggers]
+crons = ["0 0 * * *"]  # Run at midnight every day
