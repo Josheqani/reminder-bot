@@ -1,0 +1,15 @@
+{
+  "name": "reminder-bot",
+  "version": "1.0.0",
+  "description": "A Telegram bot for project deadline reminders",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "dotenv": "^16.4.1",
+    "moment-jalaali": "^0.10.4",
+    "node-cron": "^3.0.3"
+  }
+} 
