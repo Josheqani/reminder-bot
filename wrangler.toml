@@ -1,0 +1,13 @@
+name = "reminder-bot"
+main = "index.js"
+compatibility_date = "2025-06-13"
+workers_dev = true
+
+[vars]
+BOT_TOKEN=7566175497:AAGAK4WeuPfQGL0KlI4OOlc7nSwL_dC8L38
+PROJECT_TITLE=دونیفای
+START_DATE=1404/03/11  
+END_DATE=1404/06/11   
+
+[[triggers]]
+schedule = "*/5 * * * *"
